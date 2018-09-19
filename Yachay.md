@@ -7,10 +7,10 @@ Here are some steps for quick use yachay:
    
 3. You can write a script like:
 
-    #!/bin/bash
+    '#!/bin/bash
     #SBATCH -p SEAS-Lab-Yeoh
     #SBATCH -J my_job_name
-    #SBATCH --gres=gpu:GF1080TI:2
+    #SBATCH --gres=gpu:GF1080TI:2'
     
     echo I see GPUS: $CUDA_VISIBLE_DEVICES
     uname -a
