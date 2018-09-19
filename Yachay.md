@@ -6,17 +6,36 @@ Here are some steps for quick use yachay:
 2. The scheduler is SLURM; there's a short overview and link to more docs here: https://sites.wustl.edu/eitrc/home/seas-compute-cluster/
    
 3. You can write a script like:
+``` 
+#!/bin/bash
+#SBATCH -p SEAS-Lab-Yeoh
+#SBATCH -J your_job_name
+#SBATCH --gres=gpu:GF1080TI:2
+ 
+echo I see GPUS: $CUDA_VISIBLE_DEVICES
 
-    `#!/bin/bash`
-    `#SBATCH -p SEAS-Lab-Yeoh`
-    `#SBATCH -J my_job_name`
-    `#SBATCH --gres=gpu:GF1080TI:2`
-    
-    `echo I see GPUS: $CUDA_VISIBLE_DEVICES`
-    `uname -a`
-   
-that will submit a job to your partition, which contains yachay, selecting 2 of the GPUs.
-When it runs, it outputs like so:
+module add seas-lab-yeoh
+
+python3 test.py         
+
+uname -a
+
+```  
+that script is selecting 2 GPUs to run a task in test.py, and will output information of GPUs
+
+then, you can use 
+`sbatch script_name.sh`
+
+this command will submit a job to your partition and add slurm-XXX.out there
+ 
+When it runs, you could use command: `less slurm-XXX.out`
+it show the outputs of the task like so:
 
     I see GPUS: 0,1
     Linux yachay.seas.wustl.edu 3.10.0-862.11.6.el7.x86_64 #1 SMP Tue Aug 14 21:49:04 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+
+## miscellaneous
+1. You could use $squeue to check all the jobs we send to yachay
+2. Yachay has 8 GPUs
+3. Once you find your job is finished, you chould remove the slurm-XXX.out file
+4. You can $kill the process if you do not want it
