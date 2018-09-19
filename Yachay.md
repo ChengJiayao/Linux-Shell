@@ -7,13 +7,13 @@ Here are some steps for quick use yachay:
    
 3. You can write a script like:
 
-    '#!/bin/bash
-    #SBATCH -p SEAS-Lab-Yeoh
-    #SBATCH -J my_job_name
-    #SBATCH --gres=gpu:GF1080TI:2'
+    `#!/bin/bash`
+    `#SBATCH -p SEAS-Lab-Yeoh`
+    `#SBATCH -J my_job_name`
+    `#SBATCH --gres=gpu:GF1080TI:2`
     
-    echo I see GPUS: $CUDA_VISIBLE_DEVICES
-    uname -a
+    `echo I see GPUS: $CUDA_VISIBLE_DEVICES`
+    `uname -a`
    
 that will submit a job to your partition, which contains yachay, selecting 2 of the GPUs.
 When it runs, it outputs like so:
