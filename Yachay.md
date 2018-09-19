@@ -35,7 +35,9 @@ it show the outputs of the task like so:
     Linux yachay.seas.wustl.edu 3.10.0-862.11.6.el7.x86_64 #1 SMP Tue Aug 14 21:49:04 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
 
 ## miscellaneous
-1. You could use $squeue to check all the jobs we send to yachay
-2. Yachay has 8 GPUs
-3. Once you find your job is finished, you chould remove the slurm-XXX.out file
-4. You can $kill the process if you do not want it
+1. Each time you submit a job, do add `module add seas-lab-yeoh` (you could copy the script example, and just change the python3 test.py line there:) )
+2. The script and the file it running should under same dirctory
+3. You could use $squeue to check all the jobs we send to yachay
+4. Yachay has 8 GPUs
+5. Once you find your job is finished, you chould remove the slurm-XXX.out file
+6. You can $kill the process if you do not want it
